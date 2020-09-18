@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "783133630272",
+    "firebase_url": "https://ties-b0017.firebaseio.com",
+    "project_id": "ties-b0017",
+    "storage_bucket": "ties-b0017.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783133630272:android:4be4b63879f8c7921fa4a5",
+        "android_client_info": {
+          "package_name": "com.example.TIES"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783133630272-tcufjmjasensh05ifjgrkgqo7m0cgq3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0VKpKI7S9yOtc7fcVpBc9OrLZ_jd7U8k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783133630272-tcufjmjasensh05ifjgrkgqo7m0cgq3p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
