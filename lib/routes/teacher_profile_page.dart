@@ -1,17 +1,17 @@
-import 'package:TIES/routes/profile_page_dialog.dart';
-import 'package:TIES/routes/subject_dialog.dart';
+import 'package:TIES/routes/teacher_profile_dialog.dart';
+import 'package:TIES/routes/teacher_subject_dialog.dart';
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatefulWidget {
+class TeacherProfilePage extends StatefulWidget {
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  _TeacherProfilePageState createState() => _TeacherProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _TeacherProfilePageState extends State<TeacherProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+       appBar: AppBar(
         title: Text(
           'Profile',
           style: TextStyle(fontSize: 25),
@@ -20,7 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: () {
-            Navigator.push(context,MaterialPageRoute(builder: (context)=> ProfilePageDialog()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>TeacherProfileDialog()));
           },
         ),
       ),
@@ -39,7 +39,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 height: 31,
               ),
               Container(
-                color: Color(0xffAFAFAF),
+                color: Color(0xffAFAFAF).withOpacity(0.40),
                 height: 104,
                 width: double.infinity,
                 child: Column(
@@ -51,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 62.0),
                       child: Text(
-                        'Pratyaksh Verma',
+                        'Shreelekha Pandey',
                         style: TextStyle(
                             color: Color(0xffFF0000),
                             fontSize: 25,
@@ -77,7 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 62.0),
                       child: Text(
-                        '4CO18',
+                        'CSED',
                         style: TextStyle(
                             color: Color(0xffFF0000),
                             fontSize: 17,
@@ -136,7 +136,7 @@ class _courses extends StatelessWidget {
                   showDialog(
                       context: context,
                       builder: (context) {
-                        return SubjectDialog();
+                        return TeacherSubjectDialog();
                       });
                 },
                 child: Container(
@@ -167,8 +167,11 @@ class _courses extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 40.5),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  
+                },
                 child: Container(
+
                   child: Image.asset('assets/images/books.png'),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
@@ -195,3 +198,4 @@ class _courses extends StatelessWidget {
     );
   }
 }
+    
