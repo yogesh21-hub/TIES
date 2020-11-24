@@ -1,7 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
 import 'onboarding_3.dart';
 
 class Onboarding2 extends StatefulWidget {
@@ -16,20 +14,6 @@ class _Onboarding2State extends State<Onboarding2> {
   int currentPage = 0;
 
   @override
-  void initState() {
-   // SystemChrome.setEnabledSystemUIOverlays([]);
-    _pageController.addListener(() {
-      setState(() {
-      });
-    });
-    super.initState();
-  }
-  // @override
-  // void dispose() {
-  //       SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
-  //   super.dispose();
-  // }
-  
   Widget circleBar(bool isActive) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 150),
