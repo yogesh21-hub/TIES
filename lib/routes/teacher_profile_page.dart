@@ -1,13 +1,16 @@
-import 'package:TIES/routes/teacher_profile_dialog.dart';
-import 'package:TIES/routes/teacher_subject_dialog.dart';
+import 'package:TIES/dialogs/teacher_profile_dialog.dart';
+import 'package:TIES/dialogs/teacher_subject_dialog.dart';
 import 'package:flutter/material.dart';
 
 class TeacherProfilePage extends StatefulWidget {
+  
   @override
   _TeacherProfilePageState createState() => _TeacherProfilePageState();
 }
 
 class _TeacherProfilePageState extends State<TeacherProfilePage> {
+  
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

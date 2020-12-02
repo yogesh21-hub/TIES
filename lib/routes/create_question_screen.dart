@@ -6,41 +6,58 @@ import '../providers/question.dart';
 class CreateQuestionScreen extends StatefulWidget {
   @override
   _CreateQuestionScreenState createState() => _CreateQuestionScreenState();
-
-  final String name;
-  final int number;
-  final int duration;
-  CreateQuestionScreen(this.name, this.number, this.duration);
 }
 
 class _CreateQuestionScreenState extends State<CreateQuestionScreen> {
   @override
   Widget build(BuildContext context) {
-    final questionClass = Questions();
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("${widget.name} Quiz${widget.number}"),
-        actions: <Widget>[IconButton(icon: Icon(Icons.save), onPressed: () {})],
-      ),
-      body: ListView.builder(
-        itemBuilder: (_, index) {
-          return ListTile(
-            leading: Text("Q${index + 1}"),
-          );
-        },
-        itemCount: questionClass.questions.length,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed('/add-question', arguments: {
-            "number": questionClass.questions.length + 1,
-            "addQuestion": questionClass.addQuestion
-          });
-        },
-        child: Icon(Icons.add),
-        tooltip: "Add Question",
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    return Column(
+      children: [
+        SizedBox(
+          height: 52,
+        ),
+        Container(
+          height: 116,
+          width: double.infinity,
+          color: Color(0xffD33030),
+          child: Row(children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 25.0),
+              child: Image.asset(
+                'assets/images/books.png',
+                height: 37,
+                width: 22,
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 33, left: 22.0),
+                  child: Text(
+                    'Question: \nAHJHABDBSAJBDKAJBKNADBNSBMBMSD',
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 22.0),
+                  child: Text(
+                    'Difficulty: 2',
+                    style: TextStyle(color: Colors.white, fontSize: 11),
+                  ),
+                ),
+              ],
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.edit),
+              color: Colors.white,
+            )
+          ]),
+          
+        ),
+       
+      ],
     );
   }
 }

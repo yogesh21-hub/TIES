@@ -1,16 +1,14 @@
 import 'package:TIES/routes/onboarding_1.dart';
+import 'package:TIES/routes/previous_assignments.dart';
+import 'package:TIES/routes/profile_page.dart';
 import 'package:TIES/routes/reset_password.dart';
-import 'package:TIES/routes/teacher_profile_page.dart';
-import 'package:TIES/routes/teacher_upcoming_assignment.dart';
+import 'package:TIES/routes/statistics.dart';
+import 'package:TIES/routes/take_assignment.dart';
+import 'package:TIES/routes/upcoming_assignements.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class TeacherProfileDialog extends StatefulWidget {
-  @override
-  _TeacherProfileDialogState createState() => _TeacherProfileDialogState();
-}
-
-class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
+class ProfilePageDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +62,16 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
             SizedBox(
               height: 50,
             ),
-              
+               ListTile(
+              title: Center(
+                  child: Text(
+                'Take Assessment',
+                style: TextStyle(fontSize: 19, color: Colors.white),
+              )),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>TakeAssignment()));
+              },
+            ),
             ListTile(
               title: Center(
                   child: Text(
@@ -72,7 +79,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>TeacherProfilePage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()));
               },
             ),
             ListTile(
@@ -82,7 +89,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>TeacherUpcomingAssignment()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>UpcomingAssigments()));
               },
             ),
             ListTile(
@@ -92,7 +99,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: (){
-               // Navigator.push(context, MaterialPageRoute(builder: (context)=>PreviousAssignments()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>PreviousAssignments()));
               },
             ),
             ListTile(
@@ -102,7 +109,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: (){
-
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Statistics()));
               },
             ),
             ListTile(

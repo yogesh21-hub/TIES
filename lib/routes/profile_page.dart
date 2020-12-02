@@ -1,5 +1,5 @@
-import 'package:TIES/routes/profile_page_dialog.dart';
-import 'package:TIES/routes/subject_dialog.dart';
+import 'package:TIES/dialogs/profile_page_dialog.dart';
+import 'package:TIES/dialogs/subject_dialog.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
