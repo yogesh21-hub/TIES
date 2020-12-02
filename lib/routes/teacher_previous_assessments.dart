@@ -1,23 +1,23 @@
-import 'package:TIES/dialogs/profile_page_dialog.dart';
+import 'package:TIES/routes/teacher_profile_page.dart';
 import 'package:flutter/material.dart';
 
-class UpcomingAssigments extends StatefulWidget {
+class TeacherPreviousAssessment extends StatefulWidget {
   @override
-  _UpcomingAssigmentsState createState() => _UpcomingAssigmentsState();
+  _TeacherPreviousAssessmentState createState() => _TeacherPreviousAssessmentState();
 }
 
-class _UpcomingAssigmentsState extends State<UpcomingAssigments> {
+class _TeacherPreviousAssessmentState extends State<TeacherPreviousAssessment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+            appBar:AppBar(
           centerTitle: true,
-          title: Text('UPCOMING ASSESSMENTS'),
+          title: Text('PREVIOUS ASSESSMENTS'),
           leading: IconButton(
             icon: Icon(Icons.menu),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ProfilePageDialog()));
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => TeacherProfilePage()));
             },
           ),
         ),
@@ -34,55 +34,28 @@ class _UpcomingAssigmentsState extends State<UpcomingAssigments> {
                 SizedBox(
                   height: 31,
                 ),
-                Padding(
+                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.5),
-                  child: _upcomingAssignments(),
-                ),
-                SizedBox(
-                  height: 31,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.5),
-                  child: _upcomingAssignments(),
-                ),
-                SizedBox(
-                  height: 31,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.5),
-                  child: _upcomingAssignments(),
-                ),
-                SizedBox(
-                  height: 31,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.5),
-                  child: _upcomingAssignments(),
-                ),
-                SizedBox(
-                  height: 31,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.5),
-                  child: _upcomingAssignments(),
+                  child: _previousAssessments(),
                 ),
               ],
             ),
           ),
-        ));
+          ),
+    );
   }
 }
 
-class _upcomingAssignments extends StatefulWidget {
-  const _upcomingAssignments({
+class _previousAssessments extends StatefulWidget {
+  const _previousAssessments({
     Key key,
   }) : super(key: key);
 
   @override
-  __upcomingAssignmentsState createState() => __upcomingAssignmentsState();
+  __previousAssessmentsState createState() => __previousAssessmentsState();
 }
 
-class __upcomingAssignmentsState extends State<_upcomingAssignments> {
+class __previousAssessmentsState extends State<_previousAssessments> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
@@ -99,7 +72,7 @@ class __upcomingAssignmentsState extends State<_upcomingAssignments> {
           children: [
             Container(
               decoration: BoxDecoration(
-                  color: isSelected ? Color(0xffFDBCBC) : Color(0xffFFF1F1),
+                  color: Color(0xffFFF1F1),
                   boxShadow: [
                     BoxShadow(
                       color: Color(0xff00000028),
@@ -128,10 +101,7 @@ class __upcomingAssignmentsState extends State<_upcomingAssignments> {
                           padding: const EdgeInsets.only(top:10.0,left: 16),
                           child: Text('Time: 5:30 PM - 6:00 PM'),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top:10.0,left: 16),
-                          child: Text('Room: LT 402'),
-                        ),
+                        
 
                       ],
                     )
@@ -184,7 +154,7 @@ class __upcomingAssignmentsState extends State<_upcomingAssignments> {
               height: 80,
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: isSelected ? Color(0xffFFF1F1) : Color(0xffFDBCBC),
+                  color:  Color(0xffFDBCBC),
                   boxShadow: [
                     BoxShadow(
                       color: Color(0xff00000028),
@@ -193,7 +163,21 @@ class __upcomingAssignmentsState extends State<_upcomingAssignments> {
                     ),
                   ]),
               child: isSelected
-                  ? null
+                  ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 15,),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal:15.0),
+                        child: Text('Overall Average: 85%',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.red,fontSize: 17),),
+                      ),
+                      SizedBox(height: 15,),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal:15.0),
+                        child: Text('Your Subgroup Average: 80%',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.red,fontSize: 17),),
+                      ),
+                    ],
+                  )
                        
                       
                   : Row(

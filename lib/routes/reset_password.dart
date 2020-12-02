@@ -1,4 +1,4 @@
-import 'package:TIES/routes/profile_page_dialog.dart';
+import 'package:TIES/dialogs/profile_page_dialog.dart';
 import 'package:flutter/material.dart';
 
 class ResetPassword extends StatefulWidget {

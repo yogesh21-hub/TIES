@@ -1,7 +1,7 @@
 import 'package:TIES/routes/onboarding_1.dart';
 import 'package:TIES/routes/profile_page.dart';
 import 'package:TIES/routes/teacher_profile_page.dart';
-import 'package:TIES/routes/teacher_subject_dialog.dart';
+import 'package:TIES/dialogs/teacher_subject_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +16,7 @@ void main() async{
 }
 
 class MyApp extends StatelessWidget {
+  bool isTeacher ;
 
   @override
   Widget build(BuildContext context) {
