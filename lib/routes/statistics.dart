@@ -1,6 +1,5 @@
 //import 'package:charts_flutter/flutter.dart';
 import 'package:TIES/dialogs/profile_page_dialog.dart';
-import 'package:TIES/providers/stats.dart';
 import 'package:TIES/routes/overallstats.dart';
 import 'package:TIES/routes/profile_page.dart';
 import 'package:TIES/routes/subjectwisestats.dart';
