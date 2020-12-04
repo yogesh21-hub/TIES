@@ -16,15 +16,11 @@ void main() async{
 }
 
 class MyApp extends StatelessWidget {
-  bool isTeacher ;
+
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider.value(value: Quizes()),
-      ],
-      child: MaterialApp(
+    return  MaterialApp(
           debugShowCheckedModeBanner: false,
           home: StreamBuilder(
             stream: FirebaseAuth.instance.authStateChanges(),
@@ -61,7 +57,7 @@ class MyApp extends StatelessWidget {
           title: "TIES",
           theme: ThemeData(
               primarySwatch: Colors.red,
-              primaryColor: Colors.red[500])),
-    );
+              primaryColor: Colors.red[500]));
+    
   }
 }
