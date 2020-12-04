@@ -2,6 +2,7 @@ import 'package:TIES/routes/onboarding_1.dart';
 import 'package:TIES/routes/reset_password.dart';
 import 'package:TIES/routes/teacher_previous_assessments.dart';
 import 'package:TIES/routes/teacher_profile_page.dart';
+import 'package:TIES/routes/teacher_stats.dart';
 import 'package:TIES/routes/teacher_upcoming_assignment.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -104,7 +105,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: (){
-
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>TeacherStats()));
               },
             ),
             ListTile(
