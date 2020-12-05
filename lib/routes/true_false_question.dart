@@ -1,15 +1,12 @@
-import 'dart:async';
-
-import 'package:TIES/routes/text_question.dart';
 import 'package:flutter/material.dart';
-
-class TakeAssignment2 extends StatefulWidget {
+import 'dart:async';
+class TrueFalseQuestion extends StatefulWidget {
   @override
-  _TakeAssignment2State createState() => _TakeAssignment2State();
+  _TrueFalseQuestionState createState() => _TrueFalseQuestionState();
 }
 
-class _TakeAssignment2State extends State<TakeAssignment2> {
-  final interval = const Duration(seconds: 1);
+class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
+   final interval = const Duration(seconds: 1);
 
   final int timerMaxSeconds = 0;
 
@@ -27,13 +24,11 @@ class _TakeAssignment2State extends State<TakeAssignment2> {
       });
     });
   }
-
   @override
   void initState() {
     startTimeout();
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,19 +89,15 @@ class _TakeAssignment2State extends State<TakeAssignment2> {
             SizedBox(
               height: 25,
             ),
-            Options('n/2'),
+            Options('TRUE'),
             SizedBox(
               height: 9,
             ),
-            Options('log n'),
+            Options('FALSE'),
             SizedBox(
               height: 9,
             ),
-            Options('n/2'),
-            SizedBox(
-              height: 9,
-            ),
-            Options('n/2'),
+            
             SizedBox(
               height: 15,
             ),
@@ -125,9 +116,8 @@ class _TakeAssignment2State extends State<TakeAssignment2> {
                     fontWeight: FontWeight.w400),
               ),
               onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(
-                  builder: (context) => TextQuestion())
-                );
+                
+                
                 
               },
             )
@@ -182,3 +172,5 @@ class _OptionsState extends State<Options> {
     );
   }
 }
+
+ 
