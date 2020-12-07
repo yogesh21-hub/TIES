@@ -11,6 +11,11 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
   bool bVal = false;
   bool cVal = false;
   bool dVal = false;
+  var _formkey = GlobalKey<FormState>();
+  var _optionkey1 = GlobalKey<FormState>();
+  var _optionkey2 = GlobalKey<FormState>();
+  var _optionkey3 = GlobalKey<FormState>();
+  var _optionkey4 = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +23,7 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
         backgroundColor: Color(0xffFFFFFF),
         insetPadding: EdgeInsets.all(5),
         child: SingleChildScrollView(
-                  child: Container(
+          child: Container(
             width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,6 +97,7 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
                   ],
                 ),
                 Form(
+                  key: _formkey,
                   child: Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: TextFormField(
@@ -107,6 +113,10 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
                         filled: true,
                         fillColor: Colors.white,
                       ),
+                      validator: (value) {
+                        if (value.isEmpty) return 'Enter a Question';
+                        return null;
+                      },
                     ),
                   ),
                 ),
@@ -142,7 +152,8 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
                       padding: const EdgeInsets.only(left: 14.0),
                       child: Text(
                         'Add Image (if required)',
-                        style: TextStyle(fontSize: 17, color: Color(0xffAFAFAF)),
+                        style:
+                            TextStyle(fontSize: 17, color: Color(0xffAFAFAF)),
                       ),
                     ),
                     Padding(
@@ -169,14 +180,14 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
                 ),
                 Row(
                   children: [
-                    SetOptions('Option A'),
-                    SetOptions('Option B'),
+                    SetOptions('Option A', _optionkey1),
+                    SetOptions('Option B', _optionkey2),
                   ],
                 ),
                 Row(
                   children: [
-                    SetOptions('Option C'),
-                    SetOptions('Option D'),
+                    SetOptions('Option C', _optionkey3),
+                    SetOptions('Option D', _optionkey4),
                   ],
                 ),
                 Row(
@@ -185,7 +196,8 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
                       padding: const EdgeInsets.only(left: 13.0),
                       child: Text(
                         'Correct Answer:',
-                        style: TextStyle(color: Color(0xff3D3C3C), fontSize: 17),
+                        style:
+                            TextStyle(color: Color(0xff3D3C3C), fontSize: 17),
                       ),
                     ),
                     Padding(
@@ -252,9 +264,21 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
                 MaterialButton(
                   minWidth: double.infinity,
                   height: 71,
-                  onPressed: () {},
+                  onPressed: () {
+                    _formkey.currentState.validate();
+                    _optionkey1.currentState.validate();
+                    _optionkey2.currentState.validate();
+                    _optionkey3.currentState.validate();
+                    _optionkey4.currentState.validate();
+                  },
                   color: Color(0xffFF0000).withOpacity(0.75),
-                  child: Text('CONFIRM',style: TextStyle(color: Colors.white,fontSize: 25,),),
+                  child: Text(
+                    'CONFIRM',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                    ),
+                  ),
                 )
               ],
             ),
@@ -265,7 +289,8 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
 
 class SetOptions extends StatefulWidget {
   String text;
-  SetOptions(this.text);
+  var _optionkey;
+  SetOptions(this.text, this._optionkey);
   @override
   _SetOptionsState createState() => _SetOptionsState();
 }
@@ -278,10 +303,15 @@ class _SetOptionsState extends State<SetOptions> {
     return Container(
       width: 200,
       child: Form(
+        key: widget._optionkey,
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: TextFormField(
             controller: _textEditingController,
+            validator: (value) {
+              if (value.isEmpty) return "Option Required";
+              return null;
+            },
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(
