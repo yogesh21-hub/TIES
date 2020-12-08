@@ -81,9 +81,17 @@ class _questions extends StatelessWidget {
              ),
              Padding(
                padding: const EdgeInsets.only(left: 22.0),
-               child: Text(
-                 'Difficulty: 2',
-                 style: TextStyle(color: Colors.white, fontSize: 11),
+               child: Row(
+                 children: [
+                   Text(
+                     'Difficulty: 2',
+                     style: TextStyle(color: Colors.white, fontSize: 11),
+                   ),
+                   Text(
+                     'Type: MCQ',
+                     style: TextStyle(color: Colors.white, fontSize: 11),
+                   ),
+                 ],
                ),
              ),
            ],

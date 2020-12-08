@@ -69,7 +69,7 @@ class _TextQuestionState extends State<TextQuestion> {
                           Padding(
                             padding: const EdgeInsets.only(left: 125.0),
                             child: Text(
-                              'Question 1/4',
+                              'Question 2/4',
                               style: TextStyle(fontSize: 25, color: Colors.white),
                             ),
                           ),
