@@ -28,10 +28,12 @@ class _TextQuestionState extends State<TextQuestion> {
       });
     });
   }
+
   void initState() {
     startTimeout();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,12 +75,8 @@ class _TextQuestionState extends State<TextQuestion> {
                             padding: const EdgeInsets.only(left: 125.0),
                             child: Text(
                               'Question 2/4',
-<<<<<<< HEAD
                               style:
                                   TextStyle(fontSize: 25, color: Colors.white),
-=======
-                              style: TextStyle(fontSize: 25, color: Colors.white),
->>>>>>> cb6fb2bee2dcd82f23121e435bb211bc9c303d46
                             ),
                           ),
                         ],
