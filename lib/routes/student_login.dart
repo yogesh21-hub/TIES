@@ -12,8 +12,17 @@ class _StudentState extends State<Student> {
   final _key = GlobalKey<FormState>();
   String useremail;
   String password;
-  bool credentialTrue = true;
+  String user = " ";
+  bool credentialTrue;
   TextEditingController _textEditingController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    credentialTrue = true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -29,9 +38,10 @@ class _StudentState extends State<Student> {
               child: TextFormField(
                 key: ValueKey('email'),
                 validator: (value) {
-                  if (value.isEmpty || !value.contains('@')) {
+                  if (value.isEmpty)
+                    return 'Enter an Email address';
+                  else if (!value.contains('@'))
                     return 'Please enter a valid email address';
-                  }
                   return null;
                 },
                 keyboardType: TextInputType.emailAddress,
@@ -50,6 +60,10 @@ class _StudentState extends State<Student> {
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: TextFormField(
                 controller: _textEditingController,
+                validator: (value) {
+                  if (value.isEmpty) return "Enter a Password";
+                  return null;
+                },
                 decoration: InputDecoration(
                   fillColor: Colors.white,
                   filled: true,
@@ -61,6 +75,16 @@ class _StudentState extends State<Student> {
                 },
               ),
             ),
+            if (credentialTrue == false)
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 3),
+                margin: EdgeInsets.only(right: 256),
+                child: Text(
+                  user,
+                  style: TextStyle(color: Colors.red),
+                  textAlign: TextAlign.left,
+                ),
+              ),
             SizedBox(
               height: 20,
             ),
@@ -71,16 +95,17 @@ class _StudentState extends State<Student> {
                 onPressed: () async {
                   _key.currentState.save();
                   _key.currentState.validate();
-                  dynamic user = await Authentication()
+                  user = await Authentication()
                       .signIn(email: useremail, password: password);
-                      
-                  if (user == null)
+
+                  if (user == "Yes") {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => ProfilePage()));
+                  } else {
                     setState(() {
                       credentialTrue = false;
                     });
-                    if(_key.currentState.validate())
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => ProfilePage()));
+                  }
                 },
                 icon: Icon(Icons.arrow_forward),
                 iconSize: 50,
@@ -91,15 +116,10 @@ class _StudentState extends State<Student> {
               height: 55,
             ),
             Text(
-              'Forgot Passsword',
+              "Forgot Password",
               style: TextStyle(
                   color: Colors.red, fontWeight: FontWeight.bold, fontSize: 19),
             ),
-            if (credentialTrue == false)
-              Text(
-                "Wrong username or password",
-                style: TextStyle(color: Colors.red),
-              )
           ],
         ),
       ),

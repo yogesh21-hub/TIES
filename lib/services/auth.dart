@@ -9,7 +9,7 @@ class Authentication {
       return "Yes";
     } catch (e) {
       if (e.code == "wrong-password") return "Wrong password";
-      return "Wrong email address";
+      return "User doesn't exist";
     }
   }
 }
