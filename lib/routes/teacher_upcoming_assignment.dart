@@ -1,5 +1,7 @@
 import 'package:TIES/dialogs/teacher_assessment_pin_dialog.dart';
 import 'package:TIES/dialogs/teacher_profile_dialog.dart';
+import 'package:TIES/routes/create_question_screen.dart';
+import 'package:TIES/routes/create_quiz_screen.dart';
 import 'package:TIES/routes/teacher_profile_page.dart';
 import 'package:flutter/material.dart';
 
@@ -71,7 +73,25 @@ class _TeacherUpcomingAssignmentState extends State<TeacherUpcomingAssignment> {
               ],
             ),
           ),
-        ));
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return Dialog(
+                  child: CreateQuizScreen(),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                );
+              },);
+              
+          },
+          label: Text('Create Quiz'),
+          icon: Icon(Icons.add),
+        ),
+        );
   }
 }
 
