@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+
 class TrueFalseQuestion extends StatefulWidget {
   @override
   _TrueFalseQuestionState createState() => _TrueFalseQuestionState();
 }
 
 class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
-   final interval = const Duration(seconds: 1);
+  final interval = const Duration(seconds: 1);
 
   final int timerMaxSeconds = 0;
 
@@ -24,11 +25,13 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
       });
     });
   }
+
   @override
   void initState() {
     startTimeout();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +71,7 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
                         Padding(
                           padding: const EdgeInsets.only(left: 125.0),
                           child: Text(
-                            'Question 1/4',
+                            'Question 3/4',
                             style: TextStyle(fontSize: 25, color: Colors.white),
                           ),
                         ),
@@ -97,7 +100,6 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
             SizedBox(
               height: 9,
             ),
-            
             SizedBox(
               height: 15,
             ),
@@ -115,11 +117,7 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
                     fontSize: 22,
                     fontWeight: FontWeight.w400),
               ),
-              onPressed: () {
-                
-                
-                
-              },
+              onPressed: () {},
             )
           ],
         ),
@@ -172,5 +170,3 @@ class _OptionsState extends State<Options> {
     );
   }
 }
-
- 
