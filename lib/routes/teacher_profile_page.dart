@@ -54,7 +54,7 @@ class _TeacherProfilePageState extends State<TeacherProfilePage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 62.0),
                       child: Text(
-                        'Shreelekha Pandey',
+                        'Karamjeet Singh',
                         style: TextStyle(
                             color: Color(0xffFF0000),
                             fontSize: 25,

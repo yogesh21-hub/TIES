@@ -12,7 +12,7 @@ class _TextQuestionState extends State<TextQuestion> {
   TextEditingController _textEditingController;
   final interval = const Duration(seconds: 1);
 
-  final int timerMaxSeconds = 300;
+  final int timerMaxSeconds = 210;
 
   int currentSeconds = 0;
 
@@ -28,7 +28,10 @@ class _TextQuestionState extends State<TextQuestion> {
       });
     });
   }
-
+  void initState() {
+    startTimeout();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +72,7 @@ class _TextQuestionState extends State<TextQuestion> {
                           Padding(
                             padding: const EdgeInsets.only(left: 125.0),
                             child: Text(
-                              'Question 1/4',
+                              'Question 2/4',
                               style:
                                   TextStyle(fontSize: 25, color: Colors.white),
                             ),
