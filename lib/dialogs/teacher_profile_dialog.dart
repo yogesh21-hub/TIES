@@ -4,6 +4,7 @@ import 'package:TIES/routes/teacher_previous_assessments.dart';
 import 'package:TIES/routes/teacher_profile_page.dart';
 import 'package:TIES/routes/teacher_stats.dart';
 import 'package:TIES/routes/teacher_upcoming_assignment.dart';
+import 'package:TIES/routes/upload_checked.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -111,6 +112,16 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
             ListTile(
               title: Center(
                   child: Text(
+                'Upload Checked Assessments',
+                style: TextStyle(fontSize: 19, color: Colors.white),
+              )),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadCheckedSheets()));
+              },
+            ),
+            ListTile(
+              title: Center(
+                  child: Text(
                 'Reset Password',
                 style: TextStyle(fontSize: 19, color: Colors.white),
               ),
@@ -119,6 +130,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPassword()));
               },
             ),
+            
           ],
         ),
       ),
