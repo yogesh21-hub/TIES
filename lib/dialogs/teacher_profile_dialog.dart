@@ -76,7 +76,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>TeacherProfilePage()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>TeacherProfilePage()));
               },
             ),
             ListTile(
@@ -86,7 +86,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>TeacherUpcomingAssignment()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>TeacherUpcomingAssignment()));
               },
             ),
             ListTile(
@@ -96,7 +96,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>TeacherPreviousAssessment()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>TeacherPreviousAssessment()));
               },
             ),
             ListTile(
@@ -116,7 +116,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadCheckedSheets()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>UploadCheckedSheets()));
               },
             ),
             ListTile(
@@ -127,7 +127,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
               ),
               ),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPassword()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ResetPassword()));
               },
             ),
             

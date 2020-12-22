@@ -78,7 +78,7 @@ class Screen1 extends StatelessWidget {
                   style: TextStyle(color: Colors.white, fontSize: 19),
                 ),
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                           builder: (context) => StudentLoginScreen()));
