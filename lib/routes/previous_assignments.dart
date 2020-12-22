@@ -178,7 +178,7 @@ class __previousAssesmentsState extends State<_previousAssesments> {
                                     fontSize: 17),
                               )
                             ),
-                          ),
+                            
                           Padding(
                             padding: const EdgeInsets.only(left: 32.0),
                             child: Text(

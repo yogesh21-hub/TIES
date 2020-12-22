@@ -1,29 +1,20 @@
-import 'package:TIES/dialogs/one_word.dart';
+import 'package:TIES/dialogs/add_ques_dialog.dart';
 import 'package:TIES/dialogs/true_falsedialog.dart';
-import 'package:TIES/routes/true_false_question.dart';
 import 'package:flutter/material.dart';
 
-class AddQuesDialog extends StatefulWidget {
+class OneWord extends StatefulWidget {
   @override
-  _AddQuesDialogState createState() => _AddQuesDialogState();
+  _OneWordState createState() => _OneWordState();
 }
 
-class _AddQuesDialogState extends State<AddQuesDialog> {
+class _OneWordState extends State<OneWord> {
   TextEditingController _textEditingController;
-  bool aVal = false;
-  bool bVal = false;
-  bool cVal = false;
-  bool dVal = false;
   var _formkey = GlobalKey<FormState>();
-  var _optionkey1 = GlobalKey<FormState>();
-  var _optionkey2 = GlobalKey<FormState>();
-  var _optionkey3 = GlobalKey<FormState>();
-  var _optionkey4 = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color(0xffFFFFFF),
+        
         body: SingleChildScrollView(
           child: Container(
             width: double.infinity,
@@ -41,7 +32,6 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      
                       Center(
                           child: Text(
                         'Data Structures and',
@@ -125,8 +115,10 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 20.0),
-                          child: Text('Multiple Choice'),
+                          child: Text('One Word'),
                         ),
+
+
                         IconButton(
                           icon: Icon(Icons.arrow_drop_down),
                           onPressed: () {
@@ -146,16 +138,15 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
                                  
                                   Divider(),
                                   ListTile(
-                                    title: Center(child: Text('OneWord',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                    title: Center(child: Text('Multiple Choice',style: TextStyle(fontWeight: FontWeight.bold),)),
                                     onTap: () {
-                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>OneWord()));
+                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>AddQuesDialog()));
                                     },
                                   ),
                                   Divider(),
                                   ListTile(
                                     title: Center(child: Text('True-False',style: TextStyle(fontWeight: FontWeight.bold),)),
                                     onTap: () {
-                                  
                                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>TrueFalse()));
                                     },
                                   ),
@@ -209,105 +200,40 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
                     ),
                   ],
                 ),
-                Row(
-                  children: [
-                    SetOptions('Option A', _optionkey1),
-                    SetOptions('Option B', _optionkey2),
-                  ],
-                ),
-                Row(
-                  children: [
-                    SetOptions('Option C', _optionkey3),
-                    SetOptions('Option D', _optionkey4),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 13.0),
-                      child: Text(
-                        'Correct Answer:',
-                        style:
-                            TextStyle(color: Color(0xff3D3C3C), fontSize: 17),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text("A"),
-                          Checkbox(
-                            value: aVal,
-                            onChanged: (bool value) {
-                              setState(() {
-                                aVal = value;
-                              });
-                            },
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                        controller: _textEditingController,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(0),
+                            ),
                           ),
-                        ],
+                          alignLabelWithHint: true,
+                          hintText: 'Enter Answer',
+                          filled: true,
+                          fillColor: Colors.white,
+                        ),
+                        validator: (value) {
+                          if (value.isEmpty) return 'Enter an Answer';
+                          return null;
+                        },
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text("B"),
-                        Checkbox(
-                          value: bVal,
-                          onChanged: (bool value) {
-                            setState(() {
-                              bVal = value;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text("C"),
-                        Checkbox(
-                          value: cVal,
-                          onChanged: (bool value) {
-                            setState(() {
-                              cVal = value;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text("D"),
-                        Checkbox(
-                          value: dVal,
-                          onChanged: (bool value) {
-                            setState(() {
-                              dVal = value;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  ],
                 ),
-            
-              ],
-            ),
-          ),
 
-        ),
-        bottomNavigationBar:     
-                MaterialButton(
+               
+          
+              ],
+              ))),
+              bottomNavigationBar:   MaterialButton(
                   minWidth: double.infinity,
                   height: 71,
                   onPressed: () {
                     _formkey.currentState.validate();
-                    _optionkey1.currentState.validate();
-                    _optionkey2.currentState.validate();
-                    _optionkey3.currentState.validate();
-                    _optionkey4.currentState.validate();
+                    // _optionkey1.currentState.validate();
+                    // _optionkey2.currentState.validate();
+                    
                   },
                   color: Color(0xffFF0000).withOpacity(0.75),
                   child: Text(
@@ -318,49 +244,7 @@ class _AddQuesDialogState extends State<AddQuesDialog> {
                     ),
                   ),
                 ),
-        );
-  }
-}
-
-class SetOptions extends StatefulWidget {
-  String text;
-  var _optionkey;
-  SetOptions(this.text, this._optionkey);
-  @override
-  _SetOptionsState createState() => _SetOptionsState();
-}
-
-class _SetOptionsState extends State<SetOptions> {
-  TextEditingController _textEditingController;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      child: Form(
-        key: widget._optionkey,
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: TextFormField(
-            controller: _textEditingController,
-            validator: (value) {
-              if (value.isEmpty) return "Option Required";
-              return null;
-            },
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(0),
-                ),
-              ),
-              alignLabelWithHint: true,
-              hintText: widget.text,
-              filled: true,
-              fillColor: Colors.white,
-            ),
-          ),
-        ),
-      ),
-    );
+              );
+ 
   }
 }
