@@ -102,9 +102,7 @@ class _SetQuestionsState extends State<SetQuestions>
      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: showButton? FloatingActionButton(
         onPressed: () {
-          showDialog(
-            context: context,
-            builder: (context) => AddQuesDialog(),);
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>AddQuesDialog()));
           
         },
         

@@ -85,6 +85,21 @@ class _TeacherState extends State<Teacher> {
             SizedBox(
               height: 20,
             ),
+
+          ),
+          SizedBox(height: 20,),
+          CircleAvatar(
+            radius: 35,
+            backgroundColor: Colors.red,
+                      child: IconButton(
+              
+              onPressed: () {
+                
+              },
+              icon: Icon(Icons.arrow_forward),
+              iconSize: 50,
+              color: Colors.white,
+
             CircleAvatar(
               radius: 35,
               backgroundColor: Colors.red,
@@ -115,6 +130,7 @@ class _TeacherState extends State<Teacher> {
             ),
             SizedBox(
               height: 55,
+
             ),
             Text(
               'Forgot Passsword',
