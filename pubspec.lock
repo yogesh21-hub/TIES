@@ -120,6 +120,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0-nullsafety.1"
+  file_picker:
+    dependency: "direct main"
+    description:
+      name: file_picker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.4"
   firebase:
     dependency: transitive
     description:
@@ -174,7 +181,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -182,7 +188,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.7.5"
-=======
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -190,7 +195,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.11"
->>>>>>> 034a01201fd9cac61322ac3668ecd6f8b90dedf1
   flutter_test:
     dependency: "direct dev"
     description: flutter
