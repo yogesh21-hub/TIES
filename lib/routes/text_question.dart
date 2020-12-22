@@ -10,7 +10,7 @@ class TextQuestion extends StatefulWidget {
 
 class _TextQuestionState extends State<TextQuestion> {
   TextEditingController _textEditingController;
-    final interval = const Duration(seconds: 1);
+  final interval = const Duration(seconds: 1);
 
   final int timerMaxSeconds = 300;
 
@@ -40,7 +40,7 @@ class _TextQuestionState extends State<TextQuestion> {
               fit: BoxFit.cover),
         ),
         child: SingleChildScrollView(
-                  child: Column(
+          child: Column(
             children: [
               Container(
                 height: MediaQuery.of(context).size.height / 2 - 20,
@@ -90,23 +90,21 @@ class _TextQuestionState extends State<TextQuestion> {
               SizedBox(
                 height: 25,
               ),
-              
-                 SizedBox(
-                   height: 150,
-                                    child: TextFormField(
-                    controller: _textEditingController,
-                    decoration: InputDecoration(
+              SizedBox(
+                height: 150,
+                child: TextFormField(
+                  controller: _textEditingController,
+                  decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
-                     
-                      hintText: 'Enter Answer'
-                    ),
-                           maxLines: 100,
-                           minLines: 100,
-                
+                      hintText: 'Enter Answer'),
+                  maxLines: 100,
+                  minLines: 100,
+                ),
               ),
-                 ),
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
               MaterialButton(
                 height: 54,
                 minWidth: 209,
@@ -122,9 +120,10 @@ class _TextQuestionState extends State<TextQuestion> {
                       fontWeight: FontWeight.w400),
                 ),
                 onPressed: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(
-                  builder: (context) => TrueFalseQuestion())
-                );
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => TrueFalseQuestion()));
                 },
               )
             ],
