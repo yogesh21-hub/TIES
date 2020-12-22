@@ -29,6 +29,7 @@ dependencies:
   cloud_firestore: "^0.14.0+2"
   charts_flutter: 
   otp_text_field: ^1.0.1
+  
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -38,6 +39,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.7.0"
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/tietlogo.png"
+  adaptive_icon_foreground: "assets/images/tietlogo.png"
+  adaptive_icon_background: "#ffffff"
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
