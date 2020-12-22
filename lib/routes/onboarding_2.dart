@@ -13,7 +13,6 @@ class _Onboarding2State extends State<Onboarding2> {
 
   int currentPage = 0;
 
-  @override
   Widget circleBar(bool isActive) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 150),

@@ -1,4 +1,3 @@
-import 'package:TIES/routes/onboarding_1.dart';
 import 'package:TIES/routes/profile_page.dart';
 import 'package:TIES/services/auth.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +17,6 @@ class _StudentState extends State<Student> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     credentialTrue = true;
   }
@@ -94,17 +92,22 @@ class _StudentState extends State<Student> {
               child: IconButton(
                 onPressed: () async {
                   _key.currentState.save();
-                  _key.currentState.validate();
-                  user = await Authentication()
-                      .signIn(email: useremail, password: password);
+                  bool answer = _key.currentState.validate();
+                  print(answer);
+                  if (answer) {
+                    user = await Authentication()
+                        .signIn(email: useremail, password: password);
 
-                  if (user == "Yes") {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => ProfilePage()));
-                  } else {
-                    setState(() {
-                      credentialTrue = false;
-                    });
+                    if (user == "Yes") {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProfilePage()));
+                    } else {
+                      setState(() {
+                        credentialTrue = false;
+                      });
+                    }
                   }
                 },
                 icon: Icon(Icons.arrow_forward),

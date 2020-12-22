@@ -1,6 +1,7 @@
 import 'package:TIES/routes/onboarding_1.dart';
 import 'package:TIES/routes/student_login.dart';
 import 'package:TIES/routes/teacher_login.dart';
+import 'package:TIES/routes/teacher_login_screen.dart';
 import 'package:flutter/material.dart';
 
 class StudentLoginScreen extends StatefulWidget {
