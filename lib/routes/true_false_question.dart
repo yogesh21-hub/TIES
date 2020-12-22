@@ -1,3 +1,4 @@
+import 'package:TIES/routes/score_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -117,7 +118,9 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
                     fontSize: 22,
                     fontWeight: FontWeight.w400),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Score()));
+              },
             )
           ],
         ),
