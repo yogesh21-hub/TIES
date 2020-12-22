@@ -4,6 +4,7 @@ import 'package:TIES/routes/teacher_previous_assessments.dart';
 import 'package:TIES/routes/teacher_profile_page.dart';
 import 'package:TIES/routes/teacher_stats.dart';
 import 'package:TIES/routes/teacher_upcoming_assignment.dart';
+import 'package:TIES/routes/upload_checked.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -75,7 +76,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>TeacherProfilePage()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>TeacherProfilePage()));
               },
             ),
             ListTile(
@@ -85,7 +86,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>TeacherUpcomingAssignment()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>TeacherUpcomingAssignment()));
               },
             ),
             ListTile(
@@ -95,7 +96,7 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>TeacherPreviousAssessment()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>TeacherPreviousAssessment()));
               },
             ),
             ListTile(
@@ -111,14 +112,25 @@ class _TeacherProfileDialogState extends State<TeacherProfileDialog> {
             ListTile(
               title: Center(
                   child: Text(
+                'Upload Checked Assessments',
+                style: TextStyle(fontSize: 19, color: Colors.white),
+              )),
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>UploadCheckedSheets()));
+              },
+            ),
+            ListTile(
+              title: Center(
+                  child: Text(
                 'Reset Password',
                 style: TextStyle(fontSize: 19, color: Colors.white),
               ),
               ),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPassword()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ResetPassword()));
               },
             ),
+            
           ],
         ),
       ),

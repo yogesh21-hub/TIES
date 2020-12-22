@@ -69,7 +69,7 @@ class ProfilePageDialog extends StatelessWidget {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>TakeAssignment()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>TakeAssignment()));
               },
             ),
             ListTile(
@@ -79,7 +79,7 @@ class ProfilePageDialog extends StatelessWidget {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ProfilePage()));
               },
             ),
             ListTile(
@@ -89,7 +89,7 @@ class ProfilePageDialog extends StatelessWidget {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>UpcomingAssigments()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>UpcomingAssigments()));
               },
             ),
             ListTile(
@@ -99,7 +99,7 @@ class ProfilePageDialog extends StatelessWidget {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>PreviousAssignments()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>PreviousAssignments()));
               },
             ),
             ListTile(
@@ -109,7 +109,7 @@ class ProfilePageDialog extends StatelessWidget {
                 style: TextStyle(fontSize: 19, color: Colors.white),
               )),
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Statistics()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Statistics()));
               },
             ),
             ListTile(
@@ -120,7 +120,7 @@ class ProfilePageDialog extends StatelessWidget {
               ),
               ),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPassword()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ResetPassword()));
               },
             ),
           ],
