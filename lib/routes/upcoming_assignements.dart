@@ -36,35 +36,35 @@ class _UpcomingAssigmentsState extends State<UpcomingAssigments> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.5),
-                  child: _upcomingAssignments(),
+                  child: _upcomingAssignments('1'),
                 ),
                 SizedBox(
                   height: 31,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.5),
-                  child: _upcomingAssignments(),
+                  child: _upcomingAssignments('2'),
                 ),
                 SizedBox(
                   height: 31,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.5),
-                  child: _upcomingAssignments(),
+                  child: _upcomingAssignments('3'),
                 ),
                 SizedBox(
                   height: 31,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.5),
-                  child: _upcomingAssignments(),
+                  child: _upcomingAssignments('4'),
                 ),
                 SizedBox(
                   height: 31,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.5),
-                  child: _upcomingAssignments(),
+                  child: _upcomingAssignments('5'),
                 ),
               ],
             ),
@@ -74,7 +74,8 @@ class _UpcomingAssigmentsState extends State<UpcomingAssigments> {
 }
 
 class _upcomingAssignments extends StatefulWidget {
-  const _upcomingAssignments({
+  String quizNo;
+   _upcomingAssignments(this.quizNo,{
     Key key,
   }) : super(key: key);
 
@@ -84,6 +85,7 @@ class _upcomingAssignments extends StatefulWidget {
 
 class __upcomingAssignmentsState extends State<_upcomingAssignments> {
   bool isSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
@@ -157,7 +159,7 @@ class __upcomingAssignmentsState extends State<_upcomingAssignments> {
                         Padding(
                           padding: const EdgeInsets.only(left: 22.0),
                           child: Text(
-                            'Quiz 1 - Data Structures \nand Algorithms \n14/09/2020',
+                            'Quiz ${widget.quizNo} - Data Structures \nand Algorithms \n28/09/2020',
                             style: TextStyle(
                                 color: Color(0xffFB2626),
                                 fontSize: 25,
@@ -201,7 +203,7 @@ class __upcomingAssignmentsState extends State<_upcomingAssignments> {
                         Padding(
                           padding: const EdgeInsets.only(left: 17.0),
                           child: Text(
-                            'by Shreelekha Pandey',
+                            'by Karamjeet Singh',
                             style: TextStyle(
                                 color: Color(0xffFB2626),
                                 fontWeight: FontWeight.bold,

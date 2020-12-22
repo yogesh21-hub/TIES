@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+
 class TeacherSubjectWiseStatsDiallog extends StatefulWidget {
   @override
   _TeacherSubjectWiseStatsDiallogState createState() =>
       _TeacherSubjectWiseStatsDiallogState();
 }
 
-class _TeacherSubjectWiseStatsDiallogState extends State<TeacherSubjectWiseStatsDiallog> {
-    List<charts.Series<Marks, String>> seriesList;
+class _TeacherSubjectWiseStatsDiallogState
+    extends State<TeacherSubjectWiseStatsDiallog> {
+  List<charts.Series<Marks, String>> seriesList;
   _createSampleData() {
     final globalnooftimesData = [
       new Marks('12', 1, Color(0xffFD6666)),
@@ -58,6 +60,7 @@ class _TeacherSubjectWiseStatsDiallogState extends State<TeacherSubjectWiseStats
     _createData();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -66,7 +69,7 @@ class _TeacherSubjectWiseStatsDiallogState extends State<TeacherSubjectWiseStats
         width: double.infinity,
         color: Colors.white,
         child: SingleChildScrollView(
-                  child: Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               IconButton(
@@ -114,133 +117,133 @@ class _TeacherSubjectWiseStatsDiallogState extends State<TeacherSubjectWiseStats
                       fontWeight: FontWeight.bold),
                 ),
               ),
-                        Container(
-                height: 167,
-                width: double.infinity,
-                child: charts.BarChart(
-                  seriesList,
-                  animate: true,
-                  barGroupingType: charts.BarGroupingType.grouped,
-                  primaryMeasureAxis: new charts.NumericAxisSpec(
-                      renderSpec: new charts.NoneRenderSpec()),
-                )),
-                  SizedBox(
-              height: 17,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 33.0),
-              child: Text(
-                'Overall Assessment Scores in percentage with respect to time.',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 19,
-                    fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
+              Container(
+                  height: 167,
+                  width: double.infinity,
+                  child: charts.BarChart(
+                    seriesList,
+                    animate: true,
+                    barGroupingType: charts.BarGroupingType.grouped,
+                    primaryMeasureAxis: new charts.NumericAxisSpec(
+                        renderSpec: new charts.NoneRenderSpec()),
+                  )),
+              SizedBox(
+                height: 17,
               ),
-            ),
-            Container(
-                height: 211,
-                width: double.infinity,
-                child: charts.BarChart(
-                  seriesSubList,
-                  animate: true,
-                  barGroupingType: charts.BarGroupingType.values[2],
-                  primaryMeasureAxis: new charts.NumericAxisSpec(
-                      renderSpec: new charts.NoneRenderSpec()),
-                )),
-                 Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 33.0),
-              child: Text(
-                'Scores with respect to the entire batch.',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 19,
-                    fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 33.0),
+                child: Text(
+                  'Overall Assessment Scores in percentage with respect to time.',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 17,
-            ),
-                      Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 79.0),
-                      child: Text(
-                        '85%',
-                        style: TextStyle(
-                            color: Color(0xffD33030),
-                            fontSize: 19,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 21.0),
-                      child: Text('Avg. % of Entire Batch',
+              Container(
+                  height: 211,
+                  width: double.infinity,
+                  child: charts.BarChart(
+                    seriesSubList,
+                    animate: true,
+                    barGroupingType: charts.BarGroupingType.values[2],
+                    primaryMeasureAxis: new charts.NumericAxisSpec(
+                        renderSpec: new charts.NoneRenderSpec()),
+                  )),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 33.0),
+                child: Text(
+                  'Scores with respect to the entire batch.',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              SizedBox(
+                height: 17,
+              ),
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 79.0),
+                        child: Text(
+                          '85%',
                           style: TextStyle(
                               color: Color(0xffD33030),
-                              fontSize: 17,
-                              fontWeight: FontWeight.w400)),
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 81.0),
-                      child: Text(
-                        '75%',
-                        style: TextStyle(
-                            color: Color(0xffD33030),
-                            fontSize: 19,
-                            fontWeight: FontWeight.bold),
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 28.0),
-                      child: Text('Avg. % of Sub Group',
-                          style: TextStyle(
-                              color: Color(0xffD33030),
-                              fontSize: 17,
-                              fontWeight: FontWeight.w400)),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 31,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 166.0),
-                  child: Text(
-                    '80%',
-                    style: TextStyle(
-                        color: Color(0xffD33030),
-                        fontSize: 19,
-                        fontWeight: FontWeight.bold),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 21.0),
+                        child: Text('Avg. % of Entire Batch',
+                            style: TextStyle(
+                                color: Color(0xffD33030),
+                                fontSize: 17,
+                                fontWeight: FontWeight.w400)),
+                      ),
+                    ],
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 143.0),
-                  child: Text('Your Avg. %',
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 81.0),
+                        child: Text(
+                          '75%',
+                          style: TextStyle(
+                              color: Color(0xffD33030),
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 28.0),
+                        child: Text('Avg. % of Sub Group',
+                            style: TextStyle(
+                                color: Color(0xffD33030),
+                                fontSize: 17,
+                                fontWeight: FontWeight.w400)),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 31,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 166.0),
+                    child: Text(
+                      '80%',
                       style: TextStyle(
                           color: Color(0xffD33030),
-                          fontSize: 17,
-                          fontWeight: FontWeight.w400)),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 49,
-            ),
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 143.0),
+                    child: Text('Your Avg. %',
+                        style: TextStyle(
+                            color: Color(0xffD33030),
+                            fontSize: 17,
+                            fontWeight: FontWeight.w400)),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 49,
+              ),
             ],
           ),
         ),

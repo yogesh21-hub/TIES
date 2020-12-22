@@ -12,7 +12,7 @@ class _TextQuestionState extends State<TextQuestion> {
   TextEditingController _textEditingController;
   final interval = const Duration(seconds: 1);
 
-  final int timerMaxSeconds = 300;
+  final int timerMaxSeconds = 210;
 
   int currentSeconds = 0;
 
@@ -27,6 +27,11 @@ class _TextQuestionState extends State<TextQuestion> {
         if (timer.tick >= timerMaxSeconds) timer.cancel();
       });
     });
+  }
+
+  void initState() {
+    startTimeout();
+    super.initState();
   }
 
   @override
@@ -70,7 +75,8 @@ class _TextQuestionState extends State<TextQuestion> {
                             padding: const EdgeInsets.only(left: 125.0),
                             child: Text(
                               'Question 2/4',
-                              style: TextStyle(fontSize: 25, color: Colors.white),
+                              style:
+                                  TextStyle(fontSize: 25, color: Colors.white),
                             ),
                           ),
                         ],

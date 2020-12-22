@@ -185,7 +185,7 @@ class __previousAssessmentsState extends State<_previousAssessments> {
                         Padding(
                           padding: const EdgeInsets.only(left: 17.0),
                           child: Text(
-                            'by Shreelekha Pandey',
+                            'by Karamjeet Singh',
                             style: TextStyle(
                                 color: Color(0xffFB2626),
                                 fontWeight: FontWeight.bold,

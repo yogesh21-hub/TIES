@@ -9,7 +9,7 @@ class TrueFalseQuestion extends StatefulWidget {
 class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
   final interval = const Duration(seconds: 1);
 
-  final int timerMaxSeconds = 0;
+  final int timerMaxSeconds = 180;
 
   int currentSeconds = 0;
 
@@ -82,7 +82,7 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 28.0, vertical: 39),
                     child: Text(
-                      'In the worst case, the number of comparisons needed to search a singly linked list of length n for a given element is:',
+                      'In the worst case, the number of comparisons needed to search a singly linked list of length n for a given element is: O(n)',
                       style: TextStyle(color: Colors.white, fontSize: 22),
                     ),
                   ),

@@ -11,7 +11,7 @@ class TakeAssignment2 extends StatefulWidget {
 class _TakeAssignment2State extends State<TakeAssignment2> {
   final interval = const Duration(seconds: 1);
 
-  final int timerMaxSeconds = 0;
+  final int timerMaxSeconds = 240;
 
   int currentSeconds = 0;
 
@@ -102,11 +102,11 @@ class _TakeAssignment2State extends State<TakeAssignment2> {
             SizedBox(
               height: 9,
             ),
-            Options('n/2'),
+            Options('n^2'),
             SizedBox(
               height: 9,
             ),
-            Options('n/2'),
+            Options('n'),
             SizedBox(
               height: 15,
             ),

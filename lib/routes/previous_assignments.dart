@@ -154,29 +154,29 @@ class __previousAssesmentsState extends State<_previousAssesments> {
                       ),
               ),
               Container(
-                height: 80,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: isSelected ? Color(0xffFFF1F1) : Color(0xffFDBCBC),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0xff00000028),
-                        blurRadius: 10,
-                        offset: Offset.fromDirection(10),
-                      ),
-                    ]),
-                child: isSelected
-                    ? null
-                    : Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 17.0),
-                            child: Text(
-                              'by Shreelekha Pandey',
-                              style: TextStyle(
-                                  color: Color(0xffFB2626),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17),
+
+               
+                        height: 80,
+                        width: double.infinity,
+                        decoration:
+                            BoxDecoration(color:isSelected ? Color(0xffFFF1F1) : Color(0xffFDBCBC), boxShadow: [
+                          BoxShadow(
+                            color: Color(0xff00000028),
+                            blurRadius: 10,
+                            offset: Offset.fromDirection(10),
+                          ),
+                        ]),
+                        child: isSelected?null: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 17.0),
+                              child: Text(
+                                'by Karamjeet Singh',
+                                style: TextStyle(
+                                    color: Color(0xffFB2626),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17),
+                              )
                             ),
                           ),
                           Padding(
