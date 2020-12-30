@@ -1,6 +1,8 @@
 import 'package:TIES/dialogs/profile_page_dialog.dart';
 import 'package:TIES/dialogs/subject_dialog.dart';
+import 'package:TIES/providers/student_info.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -10,6 +12,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    StudentInfo student = Provider.of<StudentInfo>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -20,7 +23,8 @@ class _ProfilePageState extends State<ProfilePage> {
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: () {
-            Navigator.push(context,MaterialPageRoute(builder: (context)=> ProfilePageDialog()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ProfilePageDialog()));
           },
         ),
       ),
@@ -51,7 +55,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 62.0),
                       child: Text(
-                        'Pratyaksh Verma',
+                        student.name,
                         style: TextStyle(
                             color: Color(0xffFF0000),
                             fontSize: 25,
@@ -77,7 +81,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 62.0),
                       child: Text(
-                        '4CO18',
+                        student.batch,
                         style: TextStyle(
                             color: Color(0xffFF0000),
                             fontSize: 17,

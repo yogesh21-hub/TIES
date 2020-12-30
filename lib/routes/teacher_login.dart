@@ -1,6 +1,8 @@
+import 'package:TIES/providers/teacher_info.dart';
 import 'package:TIES/routes/teacher_profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:TIES/services/auth.dart';
+import 'package:provider/provider.dart';
 
 class Teacher extends StatefulWidget {
   @override
@@ -85,21 +87,6 @@ class _TeacherState extends State<Teacher> {
             SizedBox(
               height: 20,
             ),
-
-          ),
-          SizedBox(height: 20,),
-          CircleAvatar(
-            radius: 35,
-            backgroundColor: Colors.red,
-                      child: IconButton(
-              
-              onPressed: () {
-                
-              },
-              icon: Icon(Icons.arrow_forward),
-              iconSize: 50,
-              color: Colors.white,
-
             CircleAvatar(
               radius: 35,
               backgroundColor: Colors.red,
@@ -111,15 +98,18 @@ class _TeacherState extends State<Teacher> {
                     user = await Authentication()
                         .signIn(email: useremail, password: password);
 
-                    if (user == "Yes") {
+                    if (user == "Wrong password" ||
+                        user == "User doesn't exist") {
+                      setState(() {
+                        credentialTrue = false;
+                      });
+                    } else {
+                      await Provider.of<TeacherInfo>(context, listen: false)
+                          .setCredentials(user);
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => TeacherProfilePage()));
-                    } else {
-                      setState(() {
-                        credentialTrue = false;
-                      });
                     }
                   }
                 },
@@ -130,7 +120,6 @@ class _TeacherState extends State<Teacher> {
             ),
             SizedBox(
               height: 55,
-
             ),
             Text(
               'Forgot Passsword',

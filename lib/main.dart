@@ -1,3 +1,5 @@
+import 'package:TIES/providers/student_info.dart';
+import 'package:TIES/providers/teacher_info.dart';
 import 'package:TIES/routes/onboarding_1.dart';
 import 'package:TIES/routes/profile_page.dart';
 import 'package:TIES/routes/teacher_profile_page.dart';
@@ -8,24 +10,27 @@ import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:TIES/providers/quiz.dart';
 
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MultiProvider(
+      providers: [
+        StreamProvider<List<QuizItem>>.value(value: Quizes().getQuizes),
+        Provider<StudentInfo>.value(value: StudentInfo()),
+        Provider<TeacherInfo>.value(value: TeacherInfo()),
+      ],
+      child: MaterialApp(
           debugShowCheckedModeBanner: false,
           home: StreamBuilder(
             stream: FirebaseAuth.instance.authStateChanges(),
-            builder: (ctx,userSnapshot) {
-              if(userSnapshot.hasData){
+            builder: (ctx, userSnapshot) {
+              if (userSnapshot.hasData) {
                 return TeacherProfilePage();
               }
               return Onboarding1();
@@ -50,14 +55,12 @@ class MyApp extends StatelessWidget {
           //     );
           //   },
           // ),
-         routes: {
-           //'/showdialog': (_) => TeacherSubjectDialog(),
-          
-         },
+          routes: {
+            //'/showdialog': (_) => TeacherSubjectDialog(),
+          },
           title: "TIES",
           theme: ThemeData(
-              primarySwatch: Colors.red,
-              primaryColor: Colors.red[500]));
-    
+              primarySwatch: Colors.red, primaryColor: Colors.red[500])),
+    );
   }
 }

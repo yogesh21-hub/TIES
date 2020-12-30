@@ -3,45 +3,46 @@ import 'package:flutter/material.dart';
 
 class TeacherPreviousAssessment extends StatefulWidget {
   @override
-  _TeacherPreviousAssessmentState createState() => _TeacherPreviousAssessmentState();
+  _TeacherPreviousAssessmentState createState() =>
+      _TeacherPreviousAssessmentState();
 }
 
 class _TeacherPreviousAssessmentState extends State<TeacherPreviousAssessment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            appBar:AppBar(
-          centerTitle: true,
-          title: Text('PREVIOUS ASSESSMENTS'),
-          leading: IconButton(
-            icon: Icon(Icons.menu),
-            onPressed: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => TeacherProfilePage()));
-            },
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('PREVIOUS ASSESSMENTS'),
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => TeacherProfilePage()));
+          },
+        ),
+      ),
+      body: Container(
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/background.png'),
+              fit: BoxFit.cover),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 31,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.5),
+                child: _previousAssessments(),
+              ),
+            ],
           ),
         ),
-        body: Container(
-          constraints: BoxConstraints.expand(),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/background.png'),
-                fit: BoxFit.cover),
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 31,
-                ),
-                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.5),
-                  child: _previousAssessments(),
-                ),
-              ],
-            ),
-          ),
-          ),
+      ),
     );
   }
 }
@@ -71,14 +72,12 @@ class __previousAssessmentsState extends State<_previousAssessments> {
         child: Column(
           children: [
             Container(
-              decoration: BoxDecoration(
-                  color: Color(0xffFFF1F1),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0xff00000028),
-                      blurRadius: 10,
-                    )
-                  ]),
+              decoration: BoxDecoration(color: Color(0xffFFF1F1), boxShadow: [
+                BoxShadow(
+                  color: Color(0xff00000028),
+                  blurRadius: 10,
+                )
+              ]),
               width: double.infinity,
               height: 262,
               child: isSelected
@@ -86,23 +85,21 @@ class __previousAssessmentsState extends State<_previousAssessments> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top:20.0,left: 16),
+                          padding: const EdgeInsets.only(top: 20.0, left: 16),
                           child: Text('Topics: Chapters 1 and 2'),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top:10.0,left: 16),
+                          padding: const EdgeInsets.only(top: 10.0, left: 16),
                           child: Text('Details:'),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top:22.0,left: 16),
+                          padding: const EdgeInsets.only(top: 22.0, left: 16),
                           child: Text('Total Marks: 10'),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top:10.0,left: 16),
+                          padding: const EdgeInsets.only(top: 10.0, left: 16),
                           child: Text('Time: 5:30 PM - 6:00 PM'),
                         ),
-                        
-
                       ],
                     )
                   : Column(
@@ -114,7 +111,7 @@ class __previousAssessmentsState extends State<_previousAssessments> {
                         Padding(
                           padding: const EdgeInsets.only(left: 22.0),
                           child: Text(
-                            'UCS-XXXX',
+                            'UCS742',
                             style: TextStyle(
                                 color: Color(0xffFB2626),
                                 fontSize: 17,
@@ -127,7 +124,7 @@ class __previousAssessmentsState extends State<_previousAssessments> {
                         Padding(
                           padding: const EdgeInsets.only(left: 22.0),
                           child: Text(
-                            'Quiz 1 - Data Structures \nand Algorithms \n14/09/2020',
+                            'Quiz 1 - Data Structures \nand Algorithms \n24/12/2020',
                             style: TextStyle(
                                 color: Color(0xffFB2626),
                                 fontSize: 25,
@@ -153,33 +150,45 @@ class __previousAssessmentsState extends State<_previousAssessments> {
             Container(
               height: 80,
               width: double.infinity,
-              decoration: BoxDecoration(
-                  color:  Color(0xffFDBCBC),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0xff00000028),
-                      blurRadius: 10,
-                      offset: Offset.fromDirection(10),
-                    ),
-                  ]),
+              decoration: BoxDecoration(color: Color(0xffFDBCBC), boxShadow: [
+                BoxShadow(
+                  color: Color(0xff00000028),
+                  blurRadius: 10,
+                  offset: Offset.fromDirection(10),
+                ),
+              ]),
               child: isSelected
                   ? Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 15,),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal:15.0),
-                        child: Text('Overall Average: 85%',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.red,fontSize: 17),),
-                      ),
-                      SizedBox(height: 15,),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal:15.0),
-                        child: Text('Your Subgroup Average: 80%',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.red,fontSize: 17),),
-                      ),
-                    ],
-                  )
-                       
-                      
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                          child: Text(
+                            'Overall Average: 85%',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.red,
+                                fontSize: 17),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                          child: Text(
+                            'Your Subgroup Average: 80%',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.red,
+                                fontSize: 17),
+                          ),
+                        ),
+                      ],
+                    )
                   : Row(
                       children: [
                         Padding(
@@ -195,7 +204,7 @@ class __previousAssessmentsState extends State<_previousAssessments> {
                         Padding(
                           padding: const EdgeInsets.only(left: 32.0),
                           child: Text(
-                            '10/09/2020',
+                            '24/12/2020',
                             style: TextStyle(
                                 color: Color(0xffFB2626),
                                 fontWeight: FontWeight.bold,

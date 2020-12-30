@@ -1,20 +1,20 @@
 import 'package:TIES/dialogs/teacher_profile_dialog.dart';
 import 'package:TIES/dialogs/teacher_subject_dialog.dart';
+import 'package:TIES/providers/teacher_info.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TeacherProfilePage extends StatefulWidget {
-  
   @override
   _TeacherProfilePageState createState() => _TeacherProfilePageState();
 }
 
 class _TeacherProfilePageState extends State<TeacherProfilePage> {
-  
-  
   @override
   Widget build(BuildContext context) {
+    TeacherInfo teacher = Provider.of<TeacherInfo>(context, listen: false);
     return Scaffold(
-       appBar: AppBar(
+      appBar: AppBar(
         title: Text(
           'Profile',
           style: TextStyle(fontSize: 25),
@@ -23,7 +23,10 @@ class _TeacherProfilePageState extends State<TeacherProfilePage> {
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>TeacherProfileDialog()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => TeacherProfileDialog()));
           },
         ),
       ),
@@ -54,7 +57,7 @@ class _TeacherProfilePageState extends State<TeacherProfilePage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 62.0),
                       child: Text(
-                        'Karamjeet Singh',
+                        teacher.name ?? 'Karamjeet Singh',
                         style: TextStyle(
                             color: Color(0xffFF0000),
                             fontSize: 25,
@@ -170,11 +173,8 @@ class _courses extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 40.5),
               child: MaterialButton(
-                onPressed: () {
-                  
-                },
+                onPressed: () {},
                 child: Container(
-
                   child: Image.asset('assets/images/books.png'),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
@@ -201,4 +201,3 @@ class _courses extends StatelessWidget {
     );
   }
 }
-    

@@ -2,6 +2,8 @@ import 'package:TIES/routes/score_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/services.dart';
+
 class TrueFalseQuestion extends StatefulWidget {
   @override
   _TrueFalseQuestionState createState() => _TrueFalseQuestionState();
@@ -31,6 +33,7 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
   void initState() {
     startTimeout();
     super.initState();
+    SystemChrome.setEnabledSystemUIOverlays([]);
   }
 
   @override
@@ -45,65 +48,7 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
         ),
         child: Column(
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height / 2 - 20,
-              width: double.infinity,
-              color: Color(0xffFF0000).withOpacity(0.75),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 56.0, left: 22),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Icon(
-                          Icons.timer,
-                          size: 31,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          timerText,
-                          style: TextStyle(fontSize: 25, color: Colors.white),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 125.0),
-                          child: Text(
-                            'Question 3/4',
-                            style: TextStyle(fontSize: 25, color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 28.0, vertical: 39),
-                    child: Text(
-                      'In the worst case, the number of comparisons needed to search a singly linked list of length n for a given element is: O(n)',
-                      style: TextStyle(color: Colors.white, fontSize: 22),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 25,
-            ),
-            Options('TRUE'),
-            SizedBox(
-              height: 9,
-            ),
-            Options('FALSE'),
-            SizedBox(
-              height: 9,
-            ),
-            SizedBox(
-              height: 15,
-            ),
+            
             MaterialButton(
               height: 54,
               minWidth: 209,
@@ -119,7 +64,8 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
                     fontWeight: FontWeight.w400),
               ),
               onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Score()));
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (context) => Score()));
               },
             )
           ],

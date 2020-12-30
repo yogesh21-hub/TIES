@@ -1,29 +1,18 @@
 import 'package:flutter/cupertino.dart';
 
 class QuestionItem {
-  final String questionid;
   final String question;
-  final List<String> answers;
+  List answers;
   final String correctAnswer;
+  final String difficulty;
+  final String type;
 
   QuestionItem(
-      {this.answers, this.correctAnswer, this.question, this.questionid});
+      {this.answers,
+      this.correctAnswer,
+      this.question,
+      this.difficulty,
+      this.type});
 }
 
-class Questions with ChangeNotifier {
-  final List<QuestionItem> _questions = [];
-
-  List<QuestionItem> get questions {
-    return [..._questions];
-  }
-
-  void addQuestion(QuestionItem question) {
-    _questions.add(question);
-    notifyListeners();
-  }
-
-  void removeQuestion(String questionid) {
-    _questions.removeWhere((element) => element.questionid == questionid);
-    notifyListeners();
-  }
-}
+class Questions with ChangeNotifier {}

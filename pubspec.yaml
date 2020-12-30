@@ -31,6 +31,8 @@ dependencies:
   charts_flutter: 
   otp_text_field: ^1.0.1
   file_picker:
+  intl: ^0.16.1
+  random_string: ^2.1.0
 
 
 

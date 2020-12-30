@@ -6,8 +6,10 @@ class Authentication {
   //sign in with email and password
   Future signIn({String email, String password}) async {
     try {
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
-      return "Yes";
+      var result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      User user = result.user;
+      return user.uid;
     } catch (e) {
       if (e.code == "wrong-password") return "Wrong password";
       return "User doesn't exist";

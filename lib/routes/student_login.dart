@@ -1,6 +1,8 @@
+import 'package:TIES/providers/student_info.dart';
 import 'package:TIES/routes/profile_page.dart';
 import 'package:TIES/services/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Student extends StatefulWidget {
   @override
@@ -93,20 +95,23 @@ class _StudentState extends State<Student> {
                 onPressed: () async {
                   _key.currentState.save();
                   bool answer = _key.currentState.validate();
-                  print(answer);
                   if (answer) {
                     user = await Authentication()
                         .signIn(email: useremail, password: password);
 
-                    if (user == "Yes") {
+                    if (user == "Wrong password" ||
+                        user == "User doesn't exist") {
+                      setState(() {
+                        credentialTrue = false;
+                      });
+                    } else {
+                      StudentInfo student =
+                          Provider.of<StudentInfo>(context, listen: false);
+                      await student.setCredentials(user);
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => ProfilePage()));
-                    } else {
-                      setState(() {
-                        credentialTrue = false;
-                      });
                     }
                   }
                 },

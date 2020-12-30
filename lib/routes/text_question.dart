@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:TIES/routes/true_false_question.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class TextQuestion extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class TextQuestion extends StatefulWidget {
 }
 
 class _TextQuestionState extends State<TextQuestion> {
-  TextEditingController _textEditingController;
+  
   final interval = const Duration(seconds: 1);
 
   final int timerMaxSeconds = 210;
@@ -32,6 +33,7 @@ class _TextQuestionState extends State<TextQuestion> {
   void initState() {
     startTimeout();
     super.initState();
+    SystemChrome.setEnabledSystemUIOverlays([]);
   }
 
   @override
@@ -47,70 +49,7 @@ class _TextQuestionState extends State<TextQuestion> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                height: MediaQuery.of(context).size.height / 2 - 20,
-                width: double.infinity,
-                color: Color(0xffFF0000).withOpacity(0.75),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 56.0, left: 22),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Icon(
-                            Icons.timer,
-                            size: 31,
-                            color: Colors.white,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            timerText,
-                            style: TextStyle(fontSize: 25, color: Colors.white),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 125.0),
-                            child: Text(
-                              'Question 2/4',
-                              style:
-                                  TextStyle(fontSize: 25, color: Colors.white),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 28.0, vertical: 39),
-                      child: Text(
-                        '_____________ is an example of a Data Structure.',
-                        style: TextStyle(color: Colors.white, fontSize: 22),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              SizedBox(
-                height: 150,
-                child: TextFormField(
-                  controller: _textEditingController,
-                  decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      hintText: 'Enter Answer'),
-                  maxLines: 100,
-                  minLines: 100,
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
+              
               MaterialButton(
                 height: 54,
                 minWidth: 209,
