@@ -1,16 +1,15 @@
-# TIES
+# TIES - Redefining Student Assessment
 
-A new Flutter project.
+TIES is an e-Examination cross platform mobile app to automate assessment, grading, monitoring and evaluation.
 
-## Getting Started
+## General Info
 
-This project is a starting point for a Flutter application.
+The goal of this project was to develop and implement a holistic tool for both students and teachers so that they can respectively, set and take evaluations with ease; without using excessive resources, both material and otherwise and ensure, fast, secure correction along with preventing the use of unfair means in test taking.
 
-A few resources to get you started if this is your first Flutter project:
+Technologies and Tools used
+* Flutter 1.12.13 - For front end development using Dart 2.6.
+* Adobe XD Version 32.0 - For User Interface and Graphical Development.
+* Google Firebase 20.0.1 - For Backend and Database management.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Screenshots
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
